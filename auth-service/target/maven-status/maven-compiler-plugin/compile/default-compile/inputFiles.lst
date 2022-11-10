@@ -1,9 +1,0 @@
-/home/denis/Projects/map.org.ua/spring-boot/piggymetrics-native/piggymetrics-github/auth-service/src/main/java/com/piggymetrics/auth/service/UserService.java
-/home/denis/Projects/map.org.ua/spring-boot/piggymetrics-native/piggymetrics-github/auth-service/src/main/java/com/piggymetrics/auth/AuthApplication.java
-/home/denis/Projects/map.org.ua/spring-boot/piggymetrics-native/piggymetrics-github/auth-service/src/main/java/com/piggymetrics/auth/controller/UserController.java
-/home/denis/Projects/map.org.ua/spring-boot/piggymetrics-native/piggymetrics-github/auth-service/src/main/java/com/piggymetrics/auth/service/UserServiceImpl.java
-/home/denis/Projects/map.org.ua/spring-boot/piggymetrics-native/piggymetrics-github/auth-service/src/main/java/com/piggymetrics/auth/service/security/MongoUserDetailsService.java
-/home/denis/Projects/map.org.ua/spring-boot/piggymetrics-native/piggymetrics-github/auth-service/src/main/java/com/piggymetrics/auth/domain/User.java
-/home/denis/Projects/map.org.ua/spring-boot/piggymetrics-native/piggymetrics-github/auth-service/src/main/java/com/piggymetrics/auth/repository/UserRepository.java
-/home/denis/Projects/map.org.ua/spring-boot/piggymetrics-native/piggymetrics-github/auth-service/src/main/java/com/piggymetrics/auth/config/OAuth2AuthorizationConfig.java
-/home/denis/Projects/map.org.ua/spring-boot/piggymetrics-native/piggymetrics-github/auth-service/src/main/java/com/piggymetrics/auth/config/WebSecurityConfig.java
