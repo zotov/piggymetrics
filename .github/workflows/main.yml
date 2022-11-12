@@ -60,6 +60,6 @@ jobs:
           context: .
           file: ./auth-service/Dockerfile
           push: true
-          #tags: auth-service/${{ github.sha }}:latest
-          tags: ${{ steps.meta.outputs.tags }}:auth-service:${{ github.sha }}
-          labels: ${{ steps.meta.outputs.labels }}:auth-service:${{ github.sha }}
+          tags: auth-service:${{ github.sha }}
+          #tags: ${{ steps.meta.outputs.tags }}:auth-service:${{ github.sha }}
+          labels: ${{ steps.meta.outputs.labels }}
