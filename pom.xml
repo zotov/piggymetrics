@@ -31,6 +31,8 @@
 				<scope>import</scope>
 			</dependency>
 		</dependencies>
+
+
 	</dependencyManagement>
 	
 	<modules>
@@ -44,5 +46,13 @@
 		<module>notification-service</module>
 		<module>turbine-stream-service</module>
 	</modules>
+
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/zotov/piggymetrics</url>
+		</repository>
+	</distributionManagement>
 
 </project>
