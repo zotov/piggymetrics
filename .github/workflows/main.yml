@@ -19,19 +19,14 @@ jobs:
           distribution: 'adopt'
       - name: Build with Maven
         run: mvn -B package -Dmaven.test.skip=true --file pom.xml
-        #run: mvn -Dmaven.test.skip=true --batch-mode deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      #- name: Checkout repository
-      #  uses: actions/checkout@v3
-
-      - name: Context ls
-        run: find . | sed -e "s/[^-][^\/]*\// |/g" -e "s/|\([^ ]\)/|-\1/"
+      #- name: ls Context
+      #  run: find . | sed -e "s/[^-][^\/]*\// |/g" -e "s/|\([^ ]\)/|-\1/"
 
       - name: Setup Docker buildx
         id: buildx
         uses: docker/setup-buildx-action@v1
+        #uses: docker/setup-buildx-action@v2
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
@@ -49,16 +44,19 @@ jobs:
         id: meta
         uses: docker/metadata-action@v2
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
       - name: Build and push Docker image
         id: build-and-push-auth-service
         uses: docker/build-push-action@v2
+        #uses: docker/build-push-action@v3
         with:
+          #context: ./auth-service
           context: .
           file: ./auth-service/Dockerfile
           push: true
+          #tags: auth-service/${{ github.sha }}:latest
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
