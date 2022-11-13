@@ -53,8 +53,8 @@ jobs:
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
-      - name: Build and push Docker image account-service
-        id: build-and-push-account-service
+      - name: Build and push Docker image auth-service
+        id: build-and-push-auth-service
         uses: docker/build-push-action@v2
         with:
           context: ./auth-service
