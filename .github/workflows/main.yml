@@ -58,7 +58,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./auth-service
-          file: ./Dockerfile
+          #file: ./Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           #tags: ${{ steps.meta.outputs.tags }}:auth-service:${{ github.sha }}
@@ -67,8 +67,8 @@ jobs:
         id: build-and-push-account-service
         uses: docker/build-push-action@v2
         with:
-          context: .
-          file: ./account-service/Dockerfile
+          context: ./account-service
+          #file: ./account-service/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           #tags: ${{ steps.meta.outputs.tags }}:auth-service:${{ github.sha }}
