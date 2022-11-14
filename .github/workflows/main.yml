@@ -69,6 +69,8 @@ jobs:
           tags: auth-service:${{ github.sha }}
           #tags: ${{ steps.meta.outputs.tags }}:auth-service:${{ github.sha }}
           #labels: ${{ steps.meta.outputs.labels }}
+          secrets: |
+            GIT_AUTH_TOKEN=${{ secrets.MYTOKEN }}
       - name: Build and push Docker image account-service
         id: build-and-push-account-service
         uses: docker/build-push-action@v2
@@ -80,3 +82,5 @@ jobs:
           #tags: ${{ steps.meta.outputs.tags }}:auth-service:${{ github.sha }}
           tags: account-service:${{ github.sha }}
           #labels: ${{ steps.meta.outputs.labels }}
+          secrets: |
+            GIT_AUTH_TOKEN=${{ secrets.MYTOKEN }}
