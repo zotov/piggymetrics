@@ -89,8 +89,7 @@ jobs:
         run: docker images
 
       - name: Build docker command line
-        run: docker build -t account-service:$GITHUB_SHA:latest .
-          working-directory: ./auth-service
+        run: cd .auth-service && docker build -t account-service:$GITHUB_SHA:latest .
 
       - name: docker show images2
         run: docker images
