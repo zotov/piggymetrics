@@ -65,10 +65,10 @@ jobs:
           context: ./auth-service
           #file: ./Dockerfile
           push: true
-          #tags: ${{ steps.meta.outputs.tags }}
-          tags: auth-service:${{ github.sha }}
+          tags: ${{ steps.meta.outputs.tags }}
+          #tags: auth-service:${{ github.sha }}
           #tags: ${{ steps.meta.outputs.tags }}:auth-service:${{ github.sha }}
-          #labels: ${{ steps.meta.outputs.labels }}
+          labels: ${{ steps.meta.outputs.labels }}
           secrets: |
             GIT_AUTH_TOKEN=${{ secrets.MYTOKEN }}
       - name: Build and push Docker image account-service
@@ -78,9 +78,21 @@ jobs:
           context: ./account-service
           #file: ./account-service/Dockerfile
           push: true
-          #tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ steps.meta.outputs.tags }}
           #tags: ${{ steps.meta.outputs.tags }}:auth-service:${{ github.sha }}
-          tags: account-service:${{ github.sha }}
-          #labels: ${{ steps.meta.outputs.labels }}
-          secrets: |
-            GIT_AUTH_TOKEN=${{ secrets.MYTOKEN }}
+          #tags: account-service:${{ github.sha }}
+          labels: ${{ steps.meta.outputs.labels }}
+          #secrets: |
+          #  GIT_AUTH_TOKEN=${{ secrets.MYTOKEN }}
+
+      - name: docker show images1
+          run:  docker build -t account-service:$GITHUB_SHA:latest .
+          working-directory: ./auth-service
+
+      - name: Build docker command line
+          run:  docker build -t account-service:$GITHUB_SHA:latest .
+          working-directory: ./auth-service
+
+      - name: docker show images2
+          run:  docker build -t account-service:$GITHUB_SHA:latest .
+          working-directory: ./auth-service
