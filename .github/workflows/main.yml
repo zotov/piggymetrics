@@ -86,13 +86,11 @@ jobs:
           #  GIT_AUTH_TOKEN=${{ secrets.MYTOKEN }}
 
       - name: docker show images1
-          run:  docker build -t account-service:$GITHUB_SHA:latest .
-          working-directory: ./auth-service
+        run: docker images
 
       - name: Build docker command line
-          run:  docker build -t account-service:$GITHUB_SHA:latest .
+        run: docker build -t account-service:$GITHUB_SHA:latest .
           working-directory: ./auth-service
 
       - name: docker show images2
-          run:  docker build -t account-service:$GITHUB_SHA:latest .
-          working-directory: ./auth-service
+        run: docker images
