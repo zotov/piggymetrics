@@ -89,7 +89,10 @@ jobs:
         run: docker images
 
       - name: Build docker command-line
-        run: cd ./auth-service && docker build -t account-service:$GITHUB_SHA:latest .
+        run: |
+          cd ./auth-service
+          echo "account-service:$env:GITHUB_SHA:latest"
+          docker build -t "account-service:$env:GITHUB_SHA:latest" .
 
       - name: docker show images2
         run: docker images
