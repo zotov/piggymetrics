@@ -88,8 +88,8 @@ jobs:
       - name: docker show images1
         run: docker images
 
-      - name: Build docker command line
-        run: cd .auth-service && docker build -t account-service:$GITHUB_SHA:latest .
+      - name: Build docker command-line
+        run: cd ./auth-service && docker build -t account-service:$GITHUB_SHA:latest .
 
       - name: docker show images2
         run: docker images
