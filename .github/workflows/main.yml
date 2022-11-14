@@ -53,8 +53,8 @@ jobs:
         id: meta
         uses: docker/metadata-action@v2
         with:
-         #images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-         images: auth-service
+         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+         #images: auth-service
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
@@ -75,6 +75,7 @@ jobs:
           context: ./account-service
           #file: ./account-service/Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          #tags: ${{ steps.meta.outputs.tags }}
           #tags: ${{ steps.meta.outputs.tags }}:auth-service:${{ github.sha }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: auth-service:${{ github.sha }}
+          #labels: ${{ steps.meta.outputs.labels }}
