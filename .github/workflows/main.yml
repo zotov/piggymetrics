@@ -53,7 +53,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-         images: name/app #${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
          #images: auth-service
 
       # Build and push Docker image with Buildx (don't push on PR)
