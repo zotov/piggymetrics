@@ -41,7 +41,7 @@ jobs:
         working-directory: ./auth-service
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          IMAGE_TAG: auth-service:${{ github.sha }}
+          IMAGE_TAG: auth-service-${{ github.sha }}
         run: |
           # Build a docker container and
           # push it to ECR so that it can
